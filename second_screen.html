@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(152, 204, 204);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+
+        }
+
+        #second_div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        #button_one {
+            background-color: rgb(44, 160, 206);
+            outline: none;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #button_two {
+            background-color:rgb(44, 160, 206);
+            outline: none;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="second_div">
+    <h1 id="ready"></h1>
+    <div id="buttons">
+    <button  id="button_one" > <a href="third_screen.html">Com certeza</a></button>
+    <button  id="button_two"><a href="third_screen.html">Não</a></button>
+</div>
+</div>
+    <script>
+                const frase = "Você está pronto???"
+        let i = 0;
+
+        function digitar() {
+            if(i < frase.length) {
+                document.getElementById("ready").textContent += frase.charAt(i);
+                i++;
+                setTimeout(digitar, 50)
+            }
+        }
+
+        digitar()
+
+        const button_one = document.getElementById("button_one");
+        button_one.addEventListener("click", function() {
+            this.style.backgroundColor = "green"; 
+            this.innerHTML = "Bom garoto";
+            
+        
+    })
+        const button_two = document.getElementById("button_two");
+        button_two.addEventListener("click", function() {
+            this.style.backgroundColor = "red"; 
+            this.innerHTML = "Resposta errada";
+        })
+    </script>
+</body>
+</html>

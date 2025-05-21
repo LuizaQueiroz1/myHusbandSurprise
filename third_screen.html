@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(152, 204, 204);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            text-align: center;
+
+        }
+
+        #third_div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="third_div">
+    <h3 id="texto"></h3>
+
+    <button>12/04/1999</button>
+    <button><a href="fourth_screen.html">14/11/2021</a></button>
+    <button>07/09/2022</button>
+    <button>18/11/2021</button>
+</div>
+    <script>
+                const frase = "No entanto, para desbloquear, você precisa acertar o data do nosso aniversário de namoro primeiro!"
+        let i = 0;
+
+        function digitar() {
+            if(i < frase.length) {
+                document.getElementById("texto").textContent += frase.charAt(i);
+                i++;
+                setTimeout(digitar, 50)
+            }
+        }
+
+        digitar()
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=login" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(152, 204, 204);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+
+        }
+
+        #main-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+<body>
+    <div id="main-div">
+    <h3 id="texto"></h3>
+    <a href="second_screen.html"><span class="material-symbols-outlined">login</span></a>
+</div>
+
+    <script>
+        const frase = "Hoje completamos um ano de casados e resolvi te dar um presente diferente..."
+        let i = 0;
+
+        function digitar() {
+            if(i < frase.length) {
+                document.getElementById("texto").textContent += frase.charAt(i);
+                i++;
+                setTimeout(digitar, 50)
+            }
+        }
+
+        digitar()
+    </script>
+</body>
+</html>
