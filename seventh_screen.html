@@ -51,7 +51,7 @@
         const canvas = document.getElementById("scratchCanvas");
         const ctx = canvas.getContext("2d");
         canvas.width = 300;
-        canvas.height = 300;
+        canvas.height = 500;
         
         // Desenha a camada branca sobre o canvas
         ctx.fillStyle = "white";
@@ -69,6 +69,7 @@
         canvas.addEventListener("touchstart", () => { isScratching = true });
         canvas.addEventListener("touchend", () => { isScratching = false });
         canvas.addEventListener("touchmove", (e) => {
+            e.preventDefault(); 
             const touch = e.touches[0]; // Obtém o primeiro toque
     const rect = canvas.getBoundingClientRect();
     const x = touch.clientX - rect.left;
