@@ -69,20 +69,30 @@
         canvas.addEventListener("touchstart", () => { isScratching = true });
         canvas.addEventListener("touchend", () => { isScratching = false });
         canvas.addEventListener("touchmove", (e) => {
-            e.preventDefault(); // Impede rolagem indesejada
-            scratch(e.touches[0]); // Usa o primeiro toque para raspar
-        });
+            const touch = e.touches[0]; // Obtém o primeiro toque
+    const rect = canvas.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
 
-        function scratch(e) {
-            if (!isScratching) return;
-            const rect = canvas.getBoundingClientRect();
-            const x = (e.clientX || e.pageX) - rect.left;
-            const y = (e.clientY || e.pageY) - rect.top;
+    scratch({ clientX: x, clientY: y });
+});
+      
 
-            ctx.beginPath();
-            ctx.arc(x, y, 20, 0, Math.PI * 2);
-            ctx.fill();
-        }
+function scratch(e) {
+    if (!isScratching) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.arc(x, y, 50, 10, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 1, y + 1); // Pequena conexão para evitar buracos
+    ctx.stroke();
+}
 
         const frase = "Raspe para descobrir a imagem!"
         let i = 0;
