@@ -14,6 +14,7 @@
             flex-direction: column;
             
             align-items: center;
+            text-align: center;
 
         }
 
@@ -144,6 +145,14 @@ a{
             
         }
 
+        #texto {
+            font-size: 25px;
+        
+            color: black;
+            margin-left: 20px;
+            margin-right: 20px;    
+        }
+
 /* Animação dos confetes */
 @keyframes explodeConfetti {
     0% { transform: translate(0, 0) scale(1); opacity: 1; }
@@ -159,7 +168,7 @@ a{
         <div class="roulette">
             <div class="wheel">
                 <div class="section section1"><span>🍕 Pizza</span></div>
-                <div class="section section2"><span>🍝 Macarrão c/ almonêgas</span></div>
+                <div class="section section2"><span>🌭 Cachorro-quente</span></div>
                 <div class="section section3"><span>🍔 Hambúrguer</span></div>
                 <div class="section section4"><span>🍽️🥞 Beiju</span></div>
             </div>
@@ -207,7 +216,7 @@ spinBtn.addEventListener("click", function() {
     } else if (finalRotation >= 90 && finalRotation < 180) {
         selectedFood = "🍔 Hambúrguer";
     } else if (finalRotation >= 180 && finalRotation < 270) {
-        selectedFood = " 🍝 Macarrão c/ almôndegas";
+        selectedFood = " 🌭 Cachorro-quente";
     } else {
         selectedFood = "🍕 Pizza";
     }
@@ -240,7 +249,7 @@ function getRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-        const frase = "E para comemorar esse 1 ano de casados juntos, o que vamos jantar hoje?"
+        const frase = "E para comemorar esse 1 ano de casados, o que vamos jantar hoje?"
         let i = 0;
 
         function digitar() {
